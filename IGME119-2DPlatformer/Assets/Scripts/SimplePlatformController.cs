@@ -99,7 +99,11 @@ public class SimplePlatformController : MonoBehaviour
     void FixedUpdate()
     {
         float h = Input.GetAxis("Horizontal");
-
+	if (h != 0) {
+		anim.SetInteger("Direction", 1);
+	} else {
+		anim.SetInteger("Direction", 0);
+	}
         if (h * rb2d.velocity.x < maxSpeed)
             rb2d.AddForce(Vector2.right * h * moveForce);
 
